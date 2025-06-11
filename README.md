@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# n8n Creators Scraper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application scrapes the [n8n.io/creators](https://n8n.io/creators/) page to extract information about all creators and their workflow templates.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Extracts creator information including name, number of templates, profile image, and profile URL
+- Provides a visual interface to view and sort the extracted data
+- Offers a browser script method for more reliable extraction
+- Allows downloading the extracted data as JSON
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this repository
+2. Navigate to the project directory
+3. Install dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `npm test`
+4. Start the development server:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm start
+```
 
-### `npm run build`
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Method 1: Using the React App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Click the "Start Scraping" button on the homepage
+2. Wait for the scraping process to complete
+3. View the extracted creator information
+4. Download the data using the "Download JSON" button
 
-### `npm run eject`
+**Note:** This method may fail due to CORS restrictions or website structure changes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Method 2: Using the Browser Script (Recommended)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Click the "Show Browser Script" button on the homepage
+2. Visit [n8n.io/creators](https://n8n.io/creators/) in your browser
+3. Open the browser console (F12 or right-click > Inspect > Console)
+4. Copy and paste the provided script into the console
+5. Press Enter to execute the script
+6. The data will be automatically downloaded as a JSON file
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Data Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The extracted data follows this structure:
 
-## Learn More
+```json
+{
+  "name": "Harshil Agrawal",
+  "templates": 186,
+  "image": "https://n8n.io/path/to/avatar.jpg",
+  "profile": "https://n8n.io/creator/harshil-agrawal"
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Troubleshooting
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### CORS Issues
 
-### Code Splitting
+If you encounter CORS (Cross-Origin Resource Sharing) errors when using the React app, try the browser script method instead. The browser script method runs directly in your browser and avoids CORS restrictions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### No Creators Found
 
-### Analyzing the Bundle Size
+If the application fails to find any creators, it could be due to changes in the website's HTML structure. Try the browser script method, which uses a more direct approach to extract the data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Browser Script Not Working
 
-### Making a Progressive Web App
+If the browser script method also fails, it might be due to changes in the website's structure. Please open an issue on GitHub with details about the problem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
